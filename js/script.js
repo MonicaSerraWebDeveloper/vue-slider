@@ -47,8 +47,20 @@ createApp({
             this.activeImage = this.slides.length - 1
         }
         
-    }
-  }
+    },
+
+    autoplayCarousel() {
+        setInterval(this.nextImage, 3000)
+    },
+
+   
+
+  },
+
+  mounted() {
+    this.autoplayCarousel()
+
+}
 
 }).mount('#app')
 

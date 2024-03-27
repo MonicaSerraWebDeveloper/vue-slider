@@ -26,41 +26,44 @@ createApp({
                 text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
             }
         ],
+        // Stabiliamo l'indice 0 che ci aiuta a stabilire quale scorrere nell'array 
         activeImage: 0,
+        // Stabiliamo una variabile per l'autoplay che ci permette di etichettare il setInterval e di conseguenza stopparlo con il clearInterval
         controlAutoplay: null
     }
   },
 
   methods: {
+    // Al click l'immagine del carosello cambia e diventa l'immagine successiva all'incrementare dell'indice
     nextImage: function() {
         if (this.activeImage < this.slides.length - 1) {
             this.activeImage++
         } else {
             this.activeImage = 0
         }
-        
     },
-
+    // Al click l'immagine del carosello cambia e diventa l'immagine precedente al decremento dell'indice
     previousImage: function() {
         if (this.activeImage > 0) {
             this.activeImage--
         } else {
             this.activeImage = this.slides.length - 1
         }
-        
     },
 
+    // Stabiliamo un setInterval che attivi l'autolpay e lo mettiamo dentro una variabile che in precedenza abbiamo stabilito sia "null"
     autoplayCarousel() {
         this.controlAutoplay = setInterval(this.nextImage, 3000);
     },
 
+    // Poniamo un clearInterval che disattiva l'autoplay del carosello
     stopAutoplay() {
         clearInterval(this.controlAutoplay);
         this.controlAutoplay = null
     }
 
   },
-
+  // Al caricamento della pagina il mounted viene caricato un leggero delay
   mounted() {
     this.autoplayCarousel()
 }

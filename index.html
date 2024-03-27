@@ -14,7 +14,12 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" @mouseenter="stopAutoplay" @mouseleave="autoplayCarousel" tabindex="activeImage">
+            <div 
+            class="slider-wrapper" 
+            @mouseenter="stopAutoplay" 
+            @mouseleave="autoplayCarousel" 
+            tabindex="0"
+            >
 
                 <div class="item">
                     <img :src="slides[activeImage].image" alt="Spiderman" />
@@ -27,21 +32,13 @@
                 <div class="thumbs">
                     <div class="prev" @click="previousImage"></div>
                     <div class="next" @click="nextImage"></div>
-                    <div v-for="thumb, index in slides" class="thumb" :class="{active: index === activeImage}">
+                    <div 
+                    v-for="thumb, index in slides" 
+                    class="thumb" 
+                    :class="{active: index === activeImage}"
+                    >
                         <img :src="slides[index].image" alt="Svezia" />
                     </div>
-                    <!-- <div class="thumb">
-                        <img src="img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.webp" alt="Avengers" />
-                    </div> -->
                 </div>
 
             </div>

@@ -27,6 +27,7 @@ createApp({
             }
         ],
         activeImage: 0,
+        controlAutoplay: null
     }
   },
 
@@ -50,16 +51,18 @@ createApp({
     },
 
     autoplayCarousel() {
-        setInterval(this.nextImage, 3000)
+        this.controlAutoplay = setInterval(this.nextImage, 3000);
     },
 
-   
+    stopAutoplay() {
+        clearInterval(this.controlAutoplay);
+        this.controlAutoplay = null
+    }
 
   },
 
   mounted() {
     this.autoplayCarousel()
-
 }
 
 }).mount('#app')
